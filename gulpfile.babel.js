@@ -97,7 +97,7 @@ gulp.task("scripts:watch", () => {
 
     gulp.start("scripts");
 
-    gulp.watch("src/js/**/*.js", [ "lint" ]);
+    gulp.watch("src/**/*.js", [ "lint" ]);
 });
 
 // Clean up generated files
