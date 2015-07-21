@@ -109,5 +109,5 @@ gulp.task("watch", [ "scripts:watch" ]);
 gulp.task("build", [ "scripts" ]);
 
 // Default Task
-gulp.task("default", [ "lint" ], () => gulp.start("build"));
+gulp.task("default", [ "lint", "clean" ], () => gulp.start("build"));
 
