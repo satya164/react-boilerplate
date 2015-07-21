@@ -92,7 +92,7 @@ gulp.task("bundle", () =>
 
 gulp.task("scripts", [ "bundle" ]);
 
-gulp.task("scripts:watch", function() {
+gulp.task("scripts:watch", () => {
     bundle.watch = true;
 
     gulp.start("scripts");
