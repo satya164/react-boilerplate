@@ -10,4 +10,8 @@ class MyComponent extends React.Component {
     }
 }
 
-React.render(<MyComponent />, document.getElementById("container"));
+document.onreadystatechange = () => {
+    if (document.readyState === "complete") {
+        React.render(<MyComponent />, document.getElementById("container"));
+    }
+};
