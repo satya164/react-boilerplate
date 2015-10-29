@@ -1,8 +1,16 @@
 import webpack from "webpack";
 import path from "path";
 
+const plugins = [
+    new webpack.HotModuleReplacementPlugin()
+];
+
+if (process.env.NODE_ENV === "production") {
+    plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
 export default {
-    devtool: "eval",
+    devtool: "source-map",
     entry: [
         "webpack-dev-server/client?http://localhost:3000",
         "webpack/hot/only-dev-server",
@@ -10,12 +18,11 @@ export default {
     ],
     output: {
         path: path.join(__dirname, "dist"),
+        publicPath: "/dist/",
         filename: "bundle.min.js",
-        publicPath: "/dist/"
+        sourceMapFilename: "bundle.min.js.map"
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    plugins,
     module: {
         preLoaders: [
             {
@@ -32,7 +39,7 @@ export default {
             },
             {
                 test: /\.json$/,
-                loaders: [ "json" ],
+                loader: "json",
                 exclude: /node_modules/
             }
         ]
