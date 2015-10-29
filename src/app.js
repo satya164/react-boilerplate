@@ -1,17 +1,7 @@
 import React from "react";
 
-class MyComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
+export default class App extends React.Component {
     render() {
-        return <div>Hello world</div>;
+        return <div>Hello world :)</div>;
     }
 }
-
-document.onreadystatechange = () => {
-    if (document.readyState === "complete") {
-        React.render(<MyComponent />, document.getElementById("container"));
-    }
-};
