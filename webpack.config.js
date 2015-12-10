@@ -1,5 +1,3 @@
-"use strict";
-
 const __DEV__ = typeof global.__DEV__ === "boolean" ? global.__DEV__ : process.env.NODE_ENV !== "production";
 
 const webpack = require("webpack");
