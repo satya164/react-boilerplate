@@ -1,30 +1,22 @@
 "use strict";
 
+const __DEV__ = typeof global.__DEV__ === "boolean" ? global.__DEV__ : process.env.NODE_ENV !== "production";
+
 const webpack = require("webpack");
 const path = require("path");
-
-const plugins = [
-    new webpack.HotModuleReplacementPlugin()
-];
-
-if (process.env.NODE_ENV === "production") {
-    plugins.push(new webpack.optimize.UglifyJsPlugin());
-}
 
 module.exports = {
     devtool: "source-map",
     entry: [
-        "webpack-dev-server/client?http://localhost:3000",
-        "webpack/hot/only-dev-server",
         "./src/index"
     ],
     output: {
-        path: path.join(__dirname, "dist"),
+        path: path.resolve(__dirname, "dist"),
         publicPath: "/dist/",
         filename: "bundle.min.js",
         sourceMapFilename: "bundle.min.js.map"
     },
-    plugins,
+    plugins: __DEV__ ? [ new webpack.HotModuleReplacementPlugin() ] : [ new webpack.optimize.UglifyJsPlugin() ],
     module: {
         preLoaders: [
             {
@@ -36,7 +28,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loaders: [ "react-hot", "babel" ],
+                loaders: __DEV__ ? [ "react-hot", "babel" ] : [ "babel" ],
                 exclude: /node_modules/
             },
             {
