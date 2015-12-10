@@ -48,8 +48,8 @@
     "react-dom": "^0.14.1"
   },
   "scripts": {
-    "flow": "./node_modules/.bin/flow check .",
-    "build": "./node_modules/.bin/webpack",
+    "flow": "./node_modules/flow-bin/cli.js check .",
+    "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "node server"
   }
 }
