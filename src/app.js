@@ -1,7 +1,18 @@
 import React from "react";
+import Radium from "radium";
 
-export default class App extends React.Component {
+const styles = {
+    base: {
+        fontFamily: "sans-serif",
+        fontSize: 24,
+        color: "#555"
+    }
+};
+
+class App extends React.Component {
     render() {
-        return <div>Hello world :)</div>;
+        return <div style={styles.base}>Hello world :)</div>;
     }
 }
+
+export default Radium(App);

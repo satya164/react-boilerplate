@@ -1,5 +1,7 @@
-import webpack from "webpack";
-import path from "path";
+"use strict";
+
+const webpack = require("webpack");
+const path = require("path");
 
 const plugins = [
     new webpack.HotModuleReplacementPlugin()
@@ -9,7 +11,7 @@ if (process.env.NODE_ENV === "production") {
     plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
-export default {
+module.exports = {
     devtool: "source-map",
     entry: [
         "webpack-dev-server/client?http://localhost:3000",
@@ -27,7 +29,7 @@ export default {
         preLoaders: [
             {
                 test: /\.js$/,
-                loader: "eslint-loader",
+                loaders: [ "eslint-loader" ],
                 exclude: /node_modules/
             }
         ],
