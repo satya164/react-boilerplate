@@ -46,5 +46,10 @@
     "radium": "^0.15.3",
     "react": "^0.14.1",
     "react-dom": "^0.14.1"
+  },
+  "scripts": {
+    "flow": "./node_modules/.bin/flow check .",
+    "build": "./node_modules/.bin/webpack",
+    "watch": "node server"
   }
 }
