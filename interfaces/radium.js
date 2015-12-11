@@ -1,3 +1,3 @@
 declare module radium {
-    declare function exports(): any;
+    declare function exports(element: ReactClass): ReactClass;
 }
