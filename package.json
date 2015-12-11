@@ -58,7 +58,9 @@
       "<rootDir>/node_modules/fbjs",
       "<rootDir>/node_modules/radium",
       "<rootDir>/node_modules/inline-style-prefixer",
-      "<rootDir>/node_modules/bowser"
+      "<rootDir>/node_modules/bowser",
+      "<rootDir>/node_modules/babel-runtime",
+      "<rootDir>/node_modules/core-js"
     ]
   }
 }
