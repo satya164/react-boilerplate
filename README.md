@@ -13,6 +13,7 @@ Bolierplate for React projects
 ## Usage
 
 * `npm test` - Run tests with Jest
+* `npm run lint` - Lint changed files with ESLint
 * `npm run flow` - Typecheck files with Flow
 * `npm run build` - Build the JavaScript bundle
 * `npm run watch` - Start a server with Hot reloading
