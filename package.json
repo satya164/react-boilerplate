@@ -12,7 +12,7 @@
     "lint": "git diff HEAD --name-only --diff-filter=ACM | grep '.js$' | xargs node ./node_modules/eslint/bin/eslint.js --quiet",
     "flow": "./node_modules/flow-bin/cli.js check .",
     "build": "./node_modules/webpack/bin/webpack.js",
-    "watch": "node server"
+    "build-server": "node ./webpack-dev-server"
   },
   "author": "Satyajit Sahoo <satyajit.happy@gmail.com> (https://github.com/satya164/)",
   "license": "MIT",
