@@ -14,7 +14,10 @@ module.exports = {
         filename: "bundle.min.js",
         sourceMapFilename: "bundle.min.js.map"
     },
-    plugins: __DEV__ ? [ new webpack.HotModuleReplacementPlugin() ] : [ new webpack.optimize.UglifyJsPlugin() ],
+    plugins: [
+        new webpack.DefinePlugin({ __DEV__ }),
+        __DEV__ ? new webpack.HotModuleReplacementPlugin() : new webpack.optimize.UglifyJsPlugin()
+    ],
     module: {
         preLoaders: [
             {
