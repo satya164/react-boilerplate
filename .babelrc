@@ -10,6 +10,7 @@
     "syntax-object-rest-spread",
     "syntax-trailing-function-commas",
     "transform-class-properties",
+    "transform-flow-strip-types",
     "transform-object-assign",
     "transform-object-rest-spread",
     "transform-react-display-name",

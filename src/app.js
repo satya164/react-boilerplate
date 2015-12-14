@@ -1,20 +1,9 @@
-/* @flow */
-
 import React from "react";
-import Radium from "radium";
+import configureStore from "./store/configureStore";
+import RootContainer from "./containers/RootContainer";
 
-const styles = {
-    base: {
-        fontFamily: "sans-serif",
-        fontSize: 24,
-        color: "#555"
-    }
-};
+const store = configureStore();
 
-class App extends React.Component {
-    render() {
-        return <div style={styles.base}>Hello world :)</div>;
-    }
-}
+const App = () => <RootContainer key="root" store={store} />;
 
-export default Radium(App);
+export default App;
