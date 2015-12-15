@@ -12,10 +12,6 @@
 
   "plugins": [ "react" ],
 
-  "globals": {
-    "__DEV__": true
-  },
-
   "rules": {
     "comma-dangle": 0,
     "no-cond-assign": 2,

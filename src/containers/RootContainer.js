@@ -1,7 +1,7 @@
-/* global module, require */
+/* eslint-env node */
 
-if (__DEV__) {
-    module.exports = require("./RootContainer.dev");
-} else {
+if (process.env.NODE_ENV === "production") {
     module.exports = require("./RootContainer.prod");
+} else {
+    module.exports = require("./RootContainer.dev");
 }

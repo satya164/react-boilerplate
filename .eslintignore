@@ -1,5 +1,5 @@
 **/dist/*
 **/interfaces/*
 **/node_modules/*
-**/server.js
+**/webpack-dev-server.js
 **/webpack.config*.js

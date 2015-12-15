@@ -1,7 +1,11 @@
-const __DEV__ = typeof global.__DEV__ === "boolean" ? global.__DEV__ : process.env.NODE_ENV !== "production";
+const __DEV__ = process.env.NODE_ENV !== "production";
 
 const webpack = require("webpack");
 const path = require("path");
+
+const plugins = [
+	new webpack.EnvironmentPlugin("NODE_ENV")
+];
 
 module.exports = {
     devtool: "source-map",
@@ -14,10 +18,7 @@ module.exports = {
         filename: "bundle.min.js",
         sourceMapFilename: "bundle.min.js.map"
     },
-    plugins: [
-        new webpack.DefinePlugin({ __DEV__ }),
-        __DEV__ ? new webpack.HotModuleReplacementPlugin() : new webpack.optimize.UglifyJsPlugin()
-    ],
+    plugins: __DEV__ ? [ ...plugins, new webpack.HotModuleReplacementPlugin() ] : [ ...plugins, new webpack.optimize.UglifyJsPlugin() ],
     module: {
         preLoaders: [
             {
