@@ -9,7 +9,7 @@ Bolierplate for React projects
 * Hot reloading for React Components
 * Inline styles support with Radium
 * Testing React Components with Jest
-* Redux with Redux Dev Tools (Beta)
+* Redux with Redux Dev Tools
 
 ## Usage
 
