@@ -10,7 +10,10 @@
     "jsx": true
   },
 
-  "plugins": [ "react" ],
+  "plugins": [
+    "babel",
+    "react"
+  ],
 
   "rules": {
     "comma-dangle": 0,
@@ -190,6 +193,13 @@
     "prefer-reflect": 0,
     "prefer-template": 0,
     "require-yield": 2,
+
+    "babel/generator-star-spacing": 1,
+    "babel/new-cap": 0,
+    "babel/object-curly-spacing": [1, "always"],
+    "babel/object-shorthand": 1,
+    "babel/arrow-parens": 0,
+    "babel/no-await-in-loop": 1,
 
     "react/display-name": 0,
     "react/forbid-prop-types": 0,
