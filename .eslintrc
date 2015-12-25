@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
 
   "env": {
+    "node": true,
     "browser": true,
     "es6": true
   },
@@ -192,9 +193,9 @@
     "prefer-spread": 1,
     "prefer-reflect": 0,
     "prefer-template": 0,
-    "require-yield": 2,
+    "require-yield": 0,
 
-    "babel/generator-star-spacing": 1,
+    "babel/generator-star-spacing": 0,
     "babel/new-cap": 0,
     "babel/object-curly-spacing": [1, "always"],
     "babel/object-shorthand": 1,

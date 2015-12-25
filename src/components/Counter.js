@@ -28,7 +28,6 @@ const styles = {
 
     button: {
         display: "inline-block",
-        appearance: "none",
         background: "#56acdf",
         color: "#fff",
         borderRadius: 2,

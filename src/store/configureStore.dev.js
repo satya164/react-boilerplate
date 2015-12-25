@@ -10,13 +10,13 @@ const finalCreateStore = compose(
     applyMiddleware(thunk),
     DevTools.instrument(),
     persistState(
-        window.location.href.match(
+        typeof window !== "undefined" ? window.location.href.match(
             /[?&]debug_session=([^&]+)\b/
-        )
+        ) : null
     )
 )(createStore);
 
-export default function configureStore(initialState: ?any) {
+export default function configureStore(initialState: ?any): Object {
     const store = finalCreateStore(rootReducer, initialState);
 
     if (module.hot) {

@@ -4,14 +4,17 @@ const webpack = require("webpack");
 const path = require("path");
 
 const plugins = [
-	new webpack.EnvironmentPlugin("NODE_ENV")
+	new webpack.EnvironmentPlugin("NODE_ENV"),
+	new webpack.optimize.OccurenceOrderPlugin()
+];
+
+const entry = [
+	"./src/index"
 ];
 
 module.exports = {
     devtool: "source-map",
-    entry: [
-        "./src/index"
-    ],
+    entry: __DEV__ ? [ ...entry, "webpack-hot-middleware/client" ] : [ ...entry ],
     output: {
         path: path.resolve(__dirname, "dist"),
         publicPath: "/dist/",
