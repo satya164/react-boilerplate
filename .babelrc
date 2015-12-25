@@ -10,11 +10,20 @@
     "syntax-object-rest-spread",
     "syntax-trailing-function-commas",
     "transform-class-properties",
-    "transform-flow-strip-types",
+    "transform-flow-comments",
     "transform-object-assign",
     "transform-object-rest-spread",
     "transform-react-display-name",
+    "transform-regenerator",
     "transform-runtime",
     "transform-strict-mode"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
+    }
+  }
 }
