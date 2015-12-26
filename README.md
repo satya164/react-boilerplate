@@ -1,20 +1,23 @@
 Bolierplate for React projects
 ==============================
 
+An simple isomorphic boilerplate for React projects, running on Node 5.
+
 ## Features
 
-* Server rendering for React
-* Transpiling ES2015 and JSX via Babel
-* Linting with ESLint
-* Type checking with Flow
-* Hot reloading for React Components
-* Inline styles support with Radium
-* Testing React Components with Jest
-* Redux with Redux Dev Tools
+* Transpiling ES201x and JSX via [Babel](https://babeljs.io)
+* Type checking with [Flow](http://flowtype.org/)
+* Linting with [ESLint](http://eslint.org/)
+* Server rendering and Hot reloading for React Components with a [Koa](http://koajs.com/) server
+* Inline styles support with [Radium](http://stack.formidable.com/radium/)
+* Testing React Components with [Jest](https://facebook.github.io/jest/)
+* [Redux](http://redux.js.org/) with [Redux Dev Tools](https://github.com/gaearon/redux-devtools)
 
 ## Usage
 
-* `npm start` - Start the server (with hot reloading in development mode)
+Set `NODE_ENV` to `production` to run the server and build files in production mode.
+
+* `npm start` - Start the server (with hot reload in development mode)
 * `npm test` - Run tests with Jest
 * `npm run lint` - Lint changed files with ESLint
 * `npm run flow` - Typecheck files with Flow
