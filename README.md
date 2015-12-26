@@ -14,7 +14,7 @@ Bolierplate for React projects
 
 ## Usage
 
-* `npm start` - Start the server (with hot reloading on development)
+* `npm start` - Start the server (with hot reloading in development mode)
 * `npm test` - Run tests with Jest
 * `npm run lint` - Lint changed files with ESLint
 * `npm run flow` - Typecheck files with Flow

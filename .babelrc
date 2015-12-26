@@ -1,22 +1,8 @@
 {
   "presets": [
     "es2015",
-    "react"
-  ],
-  "plugins": [
-    "syntax-async-functions",
-    "syntax-async-generators",
-    "syntax-class-properties",
-    "syntax-object-rest-spread",
-    "syntax-trailing-function-commas",
-    "transform-class-properties",
-    "transform-flow-comments",
-    "transform-object-assign",
-    "transform-object-rest-spread",
-    "transform-react-display-name",
-    "transform-regenerator",
-    "transform-runtime",
-    "transform-strict-mode"
+    "react",
+    "stage-1"
   ],
   "env": {
     "production": {
