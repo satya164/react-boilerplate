@@ -13,16 +13,7 @@ import webpackConfig from "./webpack.config";
 
 const app = koa();
 
-app.use(route.get("/", function* () {
-    this.body = "<!DOCTYPE html>" + ReactDOMServer.renderToStaticMarkup(
-        <ServerHTML
-            locale="en"
-            title="React Bolierplate"
-            description="Simple boilerplate for React"
-            body={ReactDOMServer.renderToString(<App radiumConfig={{ userAgent: this.headers["user-agent"] }} />)}
-        />
-    );
-}));
+app.listen(8008);
 
 if (process.env.NODE_ENV === "production") {
     app.use(mount("/dist", serve("dist")));
@@ -37,4 +28,13 @@ if (process.env.NODE_ENV === "production") {
     app.use(webpackHotMiddleware(compiler));
 }
 
-app.listen(8008);
+app.use(route.get("/", function *() {
+    this.body = "<!DOCTYPE html>" + ReactDOMServer.renderToStaticMarkup(
+        <ServerHTML
+            locale="en"
+            title="React Bolierplate"
+            description="Simple boilerplate for React"
+            body={ReactDOMServer.renderToString(<App radiumConfig={{ userAgent: this.headers["user-agent"] }} />)}
+        />
+    );
+}));
