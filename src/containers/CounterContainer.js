@@ -1,26 +1,24 @@
 /* @flow */
 
-import React, { PropTypes } from "react";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Counter from "../components/Counter";
-import * as CounterActions from "../actions/CounterActions";
+import { increment, decrement, incrementIfEven } from "../actions/CounterActions";
 
-const CounterContainer = props => {
-    const { counter, dispatch } = props;
-
-    return <Counter counter={counter} {...bindActionCreators(CounterActions, dispatch)} />;
-};
-
-CounterContainer.propTypes = {
-    counter: PropTypes.number.isRequired,
-    dispatch: PropTypes.func.isRequired
-};
-
-function select(state) {
+function mapStateToProps(state) {
     return {
         counter: state.counter
     };
 }
 
-export default connect(select)(CounterContainer);
+function mapDispatchToProps(dispatch) {
+    return {
+        increment: () => dispatch(increment()),
+        decrement: () => dispatch(decrement()),
+        incrementIfEven: () => dispatch(incrementIfEven())
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter);
