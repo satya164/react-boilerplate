@@ -22,3 +22,4 @@ Set `NODE_ENV` to `production` to run the server and build files in production m
 * `npm run lint` - Lint changed files with ESLint
 * `npm run flow` - Typecheck files with Flow
 * `npm run build` - Build the JavaScript bundle
+* `npm run clean` - Cleanup build directories
