@@ -10,7 +10,7 @@
   "scripts": {
     "start": "if [[ $NODE_ENV == 'production' ]]; then npm run start:prod; else npm run start:dev; fi",
     "start:dev": "node_modules/babel-cli/bin/babel-node.js src/index",
-    "start:prod": "npm run clean:server && node_modules/babel-cli/bin/babel.js --source-maps -d build/ src/ && node build/index",
+    "start:prod": "npm run clean:server && node_modules/babel-cli/bin/babel.js --source-maps --ignore **/__tests__/** --out-dir build/ src/ && node build/index",
     "test": "node_modules/jest-cli/bin/jest.js",
     "lint": "git diff HEAD --name-only --diff-filter=ACM | grep '.js$' | xargs node node_modules/eslint/bin/eslint.js --quiet",
     "flow": "node_modules/flow-bin/cli.js check .",
