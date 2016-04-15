@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 
 const styles = {
@@ -48,44 +48,55 @@ const styles = {
     },
 };
 
-const Counter = props => {
-    return (
-        <div style={styles.base}>
-            <div style={styles.count}>
-                {props.counter}
-            </div>
-            <div style={styles.actions}>
-                <button
-                    key='increment'
-                    style={[ styles.button, styles.square ]}
-                    onClick={props.increment}
-                >
-                    +
-                </button>
-                <button
-                    key='decrement'
-                    style={[ styles.button, styles.square ]}
-                    onClick={props.decrement}
-                >
-                    -
-                </button>
-                <button
-                    key='incrementIfEven'
-                    style={styles.button}
-                    onClick={props.incrementIfEven}
-                >
-                    % 2 ? +
-                </button>
-            </div>
-        </div>
-    );
-};
+type Props = {
+    counter: number;
+    increment: Function;
+    decrement: Function;
+    incrementIfEven: Function;
+}
 
-Counter.propTypes = {
-    counter: PropTypes.number.isRequired,
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-    incrementIfEven: PropTypes.func.isRequired,
-};
+class Counter extends Component<void, Props, void> {
+    static propTypes = {
+        counter: PropTypes.number.isRequired,
+        increment: PropTypes.func.isRequired,
+        decrement: PropTypes.func.isRequired,
+        incrementIfEven: PropTypes.func.isRequired,
+    };
+
+    render() {
+        const { props } = this;
+
+        return (
+            <div style={styles.base}>
+                <div style={styles.count}>
+                    {props.counter}
+                </div>
+                <div style={styles.actions}>
+                    <button
+                        key='increment'
+                        style={[ styles.button, styles.square ]}
+                        onClick={props.increment}
+                    >
+                        +
+                    </button>
+                    <button
+                        key='decrement'
+                        style={[ styles.button, styles.square ]}
+                        onClick={props.decrement}
+                    >
+                        -
+                    </button>
+                    <button
+                        key='incrementIfEven'
+                        style={styles.button}
+                        onClick={props.incrementIfEven}
+                    >
+                        % 2 ? +
+                    </button>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default Radium(Counter);
