@@ -1,9 +1,9 @@
 /* @flow */
 
-import React, { PropTypes } from "react";
-import { Provider } from "react-redux";
-import CounterContainer from "./CounterContainer";
-import DevToolsContainer from "./DevToolsContainer";
+import React, { PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import CounterContainer from './CounterContainer';
+import DevToolsContainer from './DevToolsContainer';
 
 const RootContainer = (props: Object) => {
     return (
@@ -22,8 +22,8 @@ RootContainer.propTypes = {
         getState: PropTypes.func.isRequired,
         liftedStore: PropTypes.object.isRequired,
         replaceReducer: PropTypes.func.isRequired,
-        subscribe: PropTypes.func.isRequired
-    })
+        subscribe: PropTypes.func.isRequired,
+    }),
 };
 
 export default RootContainer;

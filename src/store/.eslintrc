@@ -1,8 +1,0 @@
-{
-    "extends": "../../.eslintrc",
-
-    "globals": {
-        "module": false,
-        "require": false
-    }
-}

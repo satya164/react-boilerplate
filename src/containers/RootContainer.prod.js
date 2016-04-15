@@ -1,8 +1,8 @@
 /* @flow */
 
-import React, { PropTypes } from "react";
-import { Provider } from "react-redux";
-import CounterContainer from "./CounterContainer";
+import React, { PropTypes } from 'react';
+import { Provider } from 'react-redux';
+import CounterContainer from './CounterContainer';
 
 const RootContainer = (props: Object) => {
     return (

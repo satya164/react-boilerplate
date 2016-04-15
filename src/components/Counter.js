@@ -1,51 +1,51 @@
 /* @flow */
 
-import React, { PropTypes } from "react";
-import Radium from "radium";
+import React, { PropTypes } from 'react';
+import Radium from 'radium';
 
 const styles = {
     base: {
         padding: 48,
         width: 360,
-        margin: "auto"
+        margin: 'auto',
     },
 
     count: {
-        fontFamily: "sans-serif",
+        fontFamily: 'sans-serif',
         fontSize: 192,
-        color: "#443b5d",
-        textAlign: "center"
+        color: '#443b5d',
+        textAlign: 'center',
     },
 
     actions: {
-        textAlign: "center"
+        textAlign: 'center',
     },
 
     square: {
         height: 34,
-        width: 34
+        width: 34,
     },
 
     button: {
-        display: "inline-block",
-        background: "#56acdf",
-        color: "#fff",
+        display: 'inline-block',
+        background: '#56acdf',
+        color: '#fff',
         borderRadius: 2,
         border: 0,
         fontSize: 16,
         padding: 8,
         margin: 2,
         outline: 0,
-        cursor: "pointer",
+        cursor: 'pointer',
 
-        ":hover": {
-            background: "#60c0f7"
+        ':hover': {
+            background: '#60c0f7',
         },
 
-        ":active": {
-            background: "#4d98c4"
-        }
-    }
+        ':active': {
+            background: '#4d98c4',
+        },
+    },
 };
 
 const Counter = props => {
@@ -56,21 +56,21 @@ const Counter = props => {
             </div>
             <div style={styles.actions}>
                 <button
-                    key="increment"
+                    key='increment'
                     style={[ styles.button, styles.square ]}
                     onClick={props.increment}
                 >
                     +
                 </button>
                 <button
-                    key="decrement"
+                    key='decrement'
                     style={[ styles.button, styles.square ]}
                     onClick={props.decrement}
                 >
                     -
                 </button>
                 <button
-                    key="incrementIfEven"
+                    key='incrementIfEven'
                     style={styles.button}
                     onClick={props.incrementIfEven}
                 >
@@ -85,7 +85,7 @@ Counter.propTypes = {
     counter: PropTypes.number.isRequired,
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
-    incrementIfEven: PropTypes.func.isRequired
+    incrementIfEven: PropTypes.func.isRequired,
 };
 
 export default Radium(Counter);

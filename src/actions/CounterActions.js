@@ -1,6 +1,6 @@
 /* @flow */
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "../constants/ActionTypes";
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
 
 type Action = {
     type: string
@@ -8,13 +8,13 @@ type Action = {
 
 export function increment(): Action {
     return {
-        type: INCREMENT_COUNTER
+        type: INCREMENT_COUNTER,
     };
 }
 
 export function decrement(): Action {
     return {
-        type: DECREMENT_COUNTER
+        type: DECREMENT_COUNTER,
     };
 }
 
