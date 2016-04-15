@@ -8,7 +8,12 @@
 .*/node_modules/fbjs.*
 .*/node_modules/babylon.*
 .*/node_modules/babel.*
-.*/__tests__/*
+
+.*/__mocks__/.*
+.*/__tests__/.*
+
+.*/node_modules/y18n/test/.*\.json
+.*/node_modules/json5/.*/duplicate-keys.json
 
 [include]
 
