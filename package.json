@@ -8,7 +8,7 @@
     "url": "git://github.com/satya164/react-boilerplate.git"
   },
   "scripts": {
-    "start": "if [[ $NODE_ENV == 'production' ]]; then npm run start:prod; else npm run start:dev; fi",
+    "start": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run start:prod; else npm run start:dev; fi",
     "start:watch": "babel-watch src/index",
     "start:dev": "babel-node src/index",
     "start:prod": "node build/index",
