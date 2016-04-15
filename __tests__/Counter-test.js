@@ -1,10 +1,9 @@
-jest.dontMock("../src/components/Counter");
-
 import React from "react";
 import ReactDOM from "react-dom";
 import TestUtils from "react-addons-test-utils";
+import Counter from "../src/components/Counter";
 
-const Counter = require("../src/components/Counter").default;
+jest.unmock("../src/components/Counter");
 
 describe("Counter", () => {
     it("renders counter with value", () => {
