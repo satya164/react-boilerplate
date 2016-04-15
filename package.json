@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "if [[ $NODE_ENV == 'production' ]]; then npm run start:prod; else npm run start:dev; fi",
+    "start:watch": "babel-watch src/index",
     "start:dev": "babel-node src/index",
     "start:prod": "node build/index",
     "prestart:prod": "npm run build:server",
@@ -39,6 +40,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
+    "babel-watch": "^2.0.2",
     "eslint": "^2.7.0",
     "eslint-import-resolver-webpack": "^0.2.0",
     "eslint-loader": "^1.3.0",
