@@ -19,7 +19,9 @@ Set `NODE_ENV` to `production` to run the server and build files in production m
 
 * `npm start` - Start the server (with hot reload in development mode)
 * `npm test` - Run tests with Jest
-* `npm run lint` - Lint changed files with ESLint
+* `npm run lint` - Lint files with ESLint
 * `npm run flow` - Typecheck files with Flow
 * `npm run build` - Build the JavaScript bundle
 * `npm run clean` - Cleanup build directories
+
+Check the `scripts` section in `package.json` for more details.
