@@ -18,24 +18,24 @@ const app = koa();
 app.listen(8008);
 
 if (process.env.NODE_ENV !== 'production') {
-    const compiler = webpack(webpackConfig);
+  const compiler = webpack(webpackConfig);
 
-    app.use(webpackDevMiddleware(compiler, {
-        publicPath: webpackConfig.output.publicPath,
-        noInfo: true
-    }));
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    noInfo: true,
+  }));
 
-    app.use(webpackHotMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler));
 }
 
 app.use(mount('/dist', serve('dist'), { defer: true }));
 app.use(route.get('/', function *() {
-    this.body = '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(
+  this.body = '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(
         <ServerHTML
-            locale='en'
-            title='React Bolierplate'
-            description='Simple boilerplate for React'
-            body={ReactDOMServer.renderToString(<App radiumConfig={{ userAgent: this.headers['user-agent'] }} />)}
+          locale='en'
+          title='React Bolierplate'
+          description='Simple boilerplate for React'
+          body={ReactDOMServer.renderToString(<App radiumConfig={{ userAgent: this.headers['user-agent'] }} />)}
         />
     );
 }));

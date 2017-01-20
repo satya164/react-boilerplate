@@ -5,20 +5,20 @@ import Counter from '../components/Counter';
 import { increment, decrement, incrementIfEven } from '../actions/CounterActions';
 
 function mapStateToProps(state) {
-    return {
-        counter: state.counter,
-    };
+  return {
+    counter: state.counter,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        increment: () => dispatch(increment()),
-        decrement: () => dispatch(decrement()),
-        incrementIfEven: () => dispatch(incrementIfEven()),
-    };
+  return {
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement()),
+    incrementIfEven: () => dispatch(incrementIfEven()),
+  };
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(Counter);
