@@ -20,6 +20,7 @@ export default function configureStore(initialState: ?any): Object {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
+    /* $FlowFixMe */
     module.hot.accept('../reducers', () =>
       store.replaceReducer(require('../reducers').default)
     );

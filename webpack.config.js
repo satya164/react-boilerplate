@@ -1,55 +1,86 @@
-const __DEV__ = process.env.NODE_ENV !== "production";
+/* eslint-disable import/no-commonjs */
 
-const webpack = require("webpack");
-const path = require("path");
-const fs = require("fs");
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const plugins = [
-  new webpack.EnvironmentPlugin("NODE_ENV")
-];
+const babelrc = JSON.parse(fs.readFileSync(path.join(__dirname, '.babelrc'), 'utf-8').toString());
 
-const entry = [
-  "./src/Client"
-];
-
-const babelrc = JSON.parse(fs.readFileSync(path.join(__dirname, ".babelrc"), "utf-8").toString());
-
-module.exports = {
-  devtool: "source-map",
-  entry: __DEV__ ? [ ...entry, "webpack-hot-middleware/client" ] : [ ...entry ],
+module.exports = (env = { NODE_ENV: 'development' }) => ({
+  devtool: 'source-map',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
-    filename: "bundle.min.js",
-    sourceMapFilename: "bundle.min.js.map"
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'dist/',
+    filename: 'bundle.js',
   },
-  plugins: __DEV__ ? [ ...plugins, new webpack.HotModuleReplacementPlugin() ] : [ ...plugins, new webpack.optimize.UglifyJsPlugin() ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: JSON.stringify(env.NODE_ENV) },
+    }),
+    new ExtractTextPlugin({
+      filename: 'styles.css',
+      allChunks: true,
+    }),
+  ].concat(env.NODE_ENV === 'production' ? [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+      sourceMap: true,
+    }),
+  ] : [
+    new webpack.HotModuleReplacementPlugin(),
+  ]),
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.js$/,
-        loader: "eslint",
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: "babel",
-        exclude: /node_modules/,
-        query: Object.assign({}, babelrc, {
-          presets: babelrc.presets.map(p => p.startsWith('es2015') ? 'es2015-native-modules' : p),
-          env: {
-            developement: {
-              presets: [ "react-hmre" ],
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
             },
-          }
-        })
+          },
+        ],
       },
       {
-        test: /\.json$/,
-        loader: "json"
-      }
-    ]
-  }
-};
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          publicPath: '/dist',
+          fallbackLoader: 'style-loader',
+          loader: [
+            'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
+            'postcss-loader',
+            'sass-loader?sourceMap',
+          ],
+        }),
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: Object.assign({}, babelrc, {
+              presets: babelrc.presets.map(p => p === 'es2015' ? [ 'es2015', { modules: false } ] : p),
+              env: {
+                developement: {
+                  presets: [ 'react-hmre' ],
+                },
+              },
+            }),
+          },
+        ],
+      },
+    ],
+  },
+  devServer: {
+    contentBase: 'static/',
+    port: 3000,
+  },
+});

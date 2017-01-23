@@ -1,19 +1,4 @@
 [ignore]
-.*/node_modules/.*/node_modules/.*
-.*/node_modules/radium.*
-.*/node_modules/flow-bin.*
-.*/node_modules/react-hot-loader.*
-.*/node_modules/webpack-dev-server.*
-.*/node_modules/webpack.*
-.*/node_modules/fbjs.*
-.*/node_modules/babylon.*
-.*/node_modules/babel.*
-
-.*/__mocks__/.*
-.*/__tests__/.*
-
-.*/node_modules/y18n/test/.*\.json
-.*/node_modules/json5/.*/duplicate-keys.json
 
 [include]
 
@@ -21,8 +6,21 @@
 interfaces/
 
 [options]
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+module.system=haste
+
+experimental.strict_type_args=true
+munge_underscores=true
+unsafe.enable_getters_and_setters=true
 
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
+
+module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(css\|scss\|less\)$' -> 'StyleSheetStub'
+module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf|ttf|otf\)$' -> 'ImageStub'
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+suppress_type=$FixMe
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
