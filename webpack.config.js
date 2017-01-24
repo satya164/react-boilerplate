@@ -38,17 +38,6 @@ module.exports = (env = { NODE_ENV: 'development' }) => ({
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           publicPath: '/dist',
@@ -76,6 +65,15 @@ module.exports = (env = { NODE_ENV: 'development' }) => ({
             }),
           },
         ],
+      },
+      {
+        test: /\.(bmp|gif|jpg|jpeg|png|svg|webp|ttf|otf)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 25000,
+          },
+        },
       },
     ],
   },
