@@ -1,7 +1,15 @@
-/* eslint-disable import/no-commonjs */
+/* @flow */
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./RootContainer.prod');
-} else {
-  module.exports = require('./RootContainer.dev');
-}
+import React from 'react';
+import { Provider } from 'react-redux';
+import CounterContainer from './CounterContainer';
+
+const RootContainer = (props: Object) => {
+  return (
+    <Provider store={props.store}>
+      <CounterContainer />
+    </Provider>
+  );
+};
+
+export default RootContainer;

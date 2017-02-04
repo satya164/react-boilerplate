@@ -1,29 +1,28 @@
 /* @flow */
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
+import type { Action } from '../types/Action';
+import type { Dispatch, GetState } from '../types/Store';
 
-type Action = {
-  type: string
-}
-
-export function increment(): Action {
+export function increment(amount: number): Action {
   return {
-    type: INCREMENT_COUNTER,
+    type: 'INCREMENT_COUNTER',
+    payload: amount,
   };
 }
 
-export function decrement(): Action {
+export function decrement(amount: number): Action {
   return {
-    type: DECREMENT_COUNTER,
+    type: 'DECREMENT_COUNTER',
+    payload: amount,
   };
 }
 
-export function incrementIfEven(): Function {
-  return (dispatch, getState) => {
+export function incrementIfEven(amount: number) {
+  return (dispatch: Dispatch, getState: GetState) => {
     const { counter } = getState();
 
     if (counter % 2 === 0) {
-      dispatch(increment());
+      dispatch(increment(amount));
     }
   };
 }

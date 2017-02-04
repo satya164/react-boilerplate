@@ -1,23 +1,18 @@
 /* @flow */
 
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistState } from 'redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
-import DevTools from '../containers/DevToolsContainer';
+import type { Store } from '../types/Store';
 
-const enhancer = compose(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const enhancer = composeEnhancers(
   applyMiddleware(thunk),
-  DevTools.instrument(),
-  persistState(
-    typeof window !== 'undefined' ? window.location.href.match(
-        /[?&]debug_session=([^&]+)\b/
-    ) : null
-  )
 );
 
-export default function configureStore(initialState: ?any): Object {
-  const store = createStore(rootReducer, initialState, enhancer);
+export default function configureStore(): Store {
+  const store = createStore(rootReducer, enhancer);
 
   if (module.hot) {
     /* $FlowFixMe */

@@ -1,17 +1,13 @@
 /* @flow */
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
-
-type Action = {
-    type: string
-}
+import type { Action } from '../types/Action';
 
 export default function(state: number = 0, action: Action): number {
   switch (action.type) {
-  case INCREMENT_COUNTER:
-    return state + 1;
-  case DECREMENT_COUNTER:
-    return state - 1;
+  case 'INCREMENT_COUNTER':
+    return state + action.payload;
+  case 'DECREMENT_COUNTER':
+    return state - action.payload;
   default:
     return state;
   }

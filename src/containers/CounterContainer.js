@@ -1,24 +1,24 @@
 /* @flow */
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Counter from '../components/Counter';
 import { increment, decrement, incrementIfEven } from '../actions/CounterActions';
+import type { State } from '../types/State';
 
-function mapStateToProps(state) {
-  return {
-    counter: state.counter,
-  };
-}
+const mapStateToProps = ({ counter }: State) => ({
+  counter,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    increment: () => dispatch(increment()),
-    decrement: () => dispatch(decrement()),
-    incrementIfEven: () => dispatch(incrementIfEven()),
-  };
-}
+const mapDispatchToProps = (dispatch: *) => bindActionCreators({
+  increment,
+  decrement,
+  incrementIfEven,
+}, dispatch);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Counter);
+
+

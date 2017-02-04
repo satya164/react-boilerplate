@@ -1,4 +1,9 @@
 [ignore]
+.*/styled-components/src/.*
+.*/styled-components/lib/native/.*
+.*/styled-components/lib/models/InlineStyle.js.flow
+.*/styled-components/dangerfile.js
+.*/stylelint/.*
 
 [include]
 
