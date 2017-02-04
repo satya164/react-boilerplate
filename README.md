@@ -8,7 +8,6 @@ An simple webpack boilerplate for React projects.
 * Transpiling ES201x and JSX via [Babel](https://babeljs.io)
 * Type checking with [Flow](http://flowtype.org/)
 * Linting with [ESLint](http://eslint.org/)
-* Sass support with [CSS Modules](https://github.com/css-modules/css-modules)
 * Testing React Components with [Jest](https://facebook.github.io/jest/)
 * [Redux](http://redux.js.org/) with [Redux Dev Tools](https://github.com/gaearon/redux-devtools)
 
