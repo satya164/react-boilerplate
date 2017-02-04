@@ -1,55 +1,85 @@
 /* @flow */
 
-import React, { Component, PropTypes } from 'react';
-import styles from './Counter.scss';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  padding: 48px;
+  width: 360px;
+  margin: auto;
+`;
+
+const Count = styled.div`
+  font-family: sans-serif;
+  font-size: 192px;
+  color: #443b5d;
+  text-align: center;
+`;
+
+const Actions = styled.div`
+  text-align: center;
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  background: #56acdf;
+  color: #fff;
+  border-radius: 2px;
+  border: 0;
+  font-size: 16px;
+  padding: 8px;
+  margin: 2px;
+  min-width: 32px;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: #60c0f7;
+  }
+
+  &:active {
+    background: #4d98c4;
+  }
+`;
+
 
 type Props = {
   counter: number;
-  increment: Function;
-  decrement: Function;
-  incrementIfEven: Function;
+  increment: () => mixed;
+  decrement: () => mixed;
+  incrementIfEven: () => mixed;
 }
 
 export default class Counter extends Component<void, Props, void> {
-  static propTypes = {
-    counter: PropTypes.number.isRequired,
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-    incrementIfEven: PropTypes.func.isRequired,
-  };
-
   render() {
     const { props } = this;
 
     return (
-      <div className={styles.base}>
-        <div className={styles.count}>
+      <Container>
+        <Count>
             {props.counter}
-        </div>
-        <div className={styles.actions}>
-          <button
+        </Count>
+        <Actions>
+          <Button
             key='increment'
-            className={styles.button}
             onClick={props.increment}
           >
             +
-          </button>
-          <button
+          </Button>
+          <Button
             key='decrement'
-            className={styles.button}
             onClick={props.decrement}
           >
             -
-          </button>
-          <button
+          </Button>
+          <Button
             key='incrementIfEven'
-            className={styles.button}
             onClick={props.incrementIfEven}
           >
             % 2 ? +
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Actions>
+      </Container>
     );
   }
 }
