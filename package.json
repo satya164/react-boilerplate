@@ -11,7 +11,9 @@
     "start": "webpack-dev-server",
     "test": "jest",
     "flow": "flow",
-    "lint": "eslint .",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint './src/**/*.js'",
+    "lint": "yarn run lint:js && yarn run lint:css",
     "build": "webpack -p --env.NODE_ENV production",
     "prebuild": "yarn run clean",
     "clean": "del dist"
@@ -50,12 +52,14 @@
     "react-addons-test-utils": "^15.4.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
+    "stylelint": "^7.8.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-styled-components": "^0.0.4",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.22.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

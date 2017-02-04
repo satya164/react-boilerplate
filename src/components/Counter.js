@@ -45,9 +45,9 @@ const Button = styled.button`
 
 type Props = {
   counter: number;
-  increment: () => mixed;
-  decrement: () => mixed;
-  incrementIfEven: () => mixed;
+  increment: (amount: number) => mixed;
+  decrement: (amount: number) => mixed;
+  incrementIfEven: (amount: number) => mixed;
 }
 
 export default class Counter extends Component<void, Props, void> {
@@ -62,19 +62,19 @@ export default class Counter extends Component<void, Props, void> {
         <Actions>
           <Button
             key='increment'
-            onClick={props.increment}
+            onClick={() => props.increment(1)}
           >
             +
           </Button>
           <Button
             key='decrement'
-            onClick={props.decrement}
+            onClick={() => props.decrement(1)}
           >
             -
           </Button>
           <Button
             key='incrementIfEven'
-            onClick={props.incrementIfEven}
+            onClick={() => props.incrementIfEven(1)}
           >
             % 2 ? +
           </Button>
