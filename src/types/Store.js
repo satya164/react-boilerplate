@@ -17,3 +17,4 @@ export type Dispatch =
   & Thunk<Action> // eslint-disable-line no-use-before-define
 
 export type Thunk<A> = ((Dispatch, GetState) => Promise<void> | void) => A;
+
