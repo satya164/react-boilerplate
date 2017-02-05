@@ -1,5 +1,7 @@
 /*  @flow */
 
+import type { Action } from '../types/Action';
+
 type Reducer<S, A: Action> = (S, A) => S;
 
 export default function createReducer<S, A: *>(

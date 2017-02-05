@@ -3,10 +3,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import CounterContainer from './CounterContainer';
+import type { Store } from '../types/Store';
 
-const RootContainer = (props: Object) => {
+type Props = {
+  store: Store;
+}
+
+const RootContainer = ({ store }: Props) => {
   return (
-    <Provider store={props.store}>
+    <Provider store={store}>
       <CounterContainer />
     </Provider>
   );
