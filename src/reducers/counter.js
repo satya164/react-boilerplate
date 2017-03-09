@@ -1,15 +1,16 @@
 /* @flow */
 
-import createReducer from '../lib/createReducer';
 import type { Action } from '../types/Action';
 
 type State = number;
 
-const initialState = 0;
-
-export default createReducer(initialState, {
-  INCREMENT_COUNTER: (state: State, action: Action) =>
-    state + action.payload,
-  DECREMENT_COUNTER: (state: State, action: Action) =>
-    state + action.payload,
-});
+export default function counter(state: State = 0, action: Action) {
+  switch (action.type) {
+  case 'INCREMENT_COUNTER':
+    return state + action.payload;
+  case 'DECREMENT_COUNTER':
+    return state - action.payload;
+  default:
+    return state;
+  }
+}
