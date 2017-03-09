@@ -60,17 +60,20 @@ module.exports = (env = { NODE_ENV: 'development' }) => ({
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: Object.assign({}, babelrc, {
-              presets: babelrc.presets.map(
-                p => p === 'es2015' ? [ 'es2015', { modules: false } ] : p
-              ),
-              env: { developement: { presets: [ 'react-hmre' ] } },
-            }),
-          },
-        ],
+        use: (
+          env.NODE_ENV !== 'production'
+            ? [ { loader: 'react-hot-loader' } ]
+            : []
+          ).concat([
+            {
+              loader: 'babel-loader',
+              options: Object.assign({}, babelrc, {
+                presets: babelrc.presets.map(
+                  p => p === 'es2015' ? [ 'es2015', { modules: false } ] : p
+                ),
+              }),
+            },
+          ]),
       },
       {
         test: /\.(bmp|gif|jpg|jpeg|png|svg|webp|ttf|otf)$/,
