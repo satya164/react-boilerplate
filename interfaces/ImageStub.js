@@ -1,3 +1,3 @@
 declare module ImageStub {
-  declare var exports: {};
+  declare module.exports: {};
 }

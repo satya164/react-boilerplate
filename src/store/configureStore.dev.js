@@ -7,9 +7,7 @@ import type { Store } from '../types/Store';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancer = composeEnhancers(
-  applyMiddleware(thunk),
-);
+const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 export default function configureStore(): Store {
   const store = createStore(rootReducer, enhancer);

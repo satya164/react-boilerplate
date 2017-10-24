@@ -1,8 +1,14 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const render = Component => ReactDOM.render(<Component />, window.root);
 
+render(App);
+
+if (module.hot) {
+  /* $FlowFixMe */
+  module.hot.accept('./App', () => render(App));
+}

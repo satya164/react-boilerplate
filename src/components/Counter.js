@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { Component } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -42,38 +42,29 @@ const Button = styled.button`
   }
 `;
 
-
 type Props = {
-  counter: number;
-  increment: (amount: number) => mixed;
-  decrement: (amount: number) => mixed;
-  incrementIfEven: (amount: number) => mixed;
-}
+  counter: number,
+  increment: (amount: number) => mixed,
+  decrement: (amount: number) => mixed,
+  incrementIfEven: (amount: number) => mixed,
+};
 
-export default class Counter extends Component<void, Props, void> {
+export default class Counter extends React.Component<Props> {
   render() {
     const { props } = this;
 
     return (
       <Container>
-        <Count>
-            {props.counter}
-        </Count>
+        <Count>{props.counter}</Count>
         <Actions>
-          <Button
-            key='increment'
-            onClick={() => props.increment(1)}
-          >
+          <Button key="increment" onClick={() => props.increment(1)}>
             +
           </Button>
-          <Button
-            key='decrement'
-            onClick={() => props.decrement(1)}
-          >
+          <Button key="decrement" onClick={() => props.decrement(1)}>
             -
           </Button>
           <Button
-            key='incrementIfEven'
+            key="incrementIfEven"
             onClick={() => props.incrementIfEven(1)}
           >
             % 2 ? +

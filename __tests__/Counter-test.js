@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import { render } from 'enzyme';
 import Counter from '../src/components/Counter';
 
 describe('Counter', () => {
@@ -8,7 +7,7 @@ describe('Counter', () => {
     const num = Math.round(Math.random() * 100);
 
     // Render a the counter in the document
-    const counter = TestUtils.renderIntoDocument(
+    const wrapper = render(
       <Counter
         counter={num}
         increment={() => null}
@@ -16,9 +15,8 @@ describe('Counter', () => {
         incrementIfEven={() => null}
       />
     );
-    const counterNode = ReactDOM.findDOMNode(counter);
 
     // Verify the passed number is displayed
-    expect(counterNode.textContent).toContain(num);
+    expect(wrapper.text()).toContain(num);
   });
 });

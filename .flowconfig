@@ -1,9 +1,4 @@
 [ignore]
-.*/styled-components/src/.*
-.*/styled-components/lib/native/.*
-.*/styled-components/lib/models/InlineStyle.js.flow
-.*/styled-components/dangerfile.js
-.*/stylelint/.*
 
 [include]
 
@@ -11,11 +6,7 @@
 interfaces/
 
 [options]
-module.system=haste
-
-experimental.strict_type_args=true
 munge_underscores=true
-unsafe.enable_getters_and_setters=true
 
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable

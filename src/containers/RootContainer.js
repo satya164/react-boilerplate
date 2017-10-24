@@ -1,13 +1,13 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import CounterContainer from './CounterContainer';
 import type { Store } from '../types/Store';
 
 type Props = {
-  store: Store;
-}
+  store: Store,
+};
 
 const RootContainer = ({ store }: Props) => {
   return (

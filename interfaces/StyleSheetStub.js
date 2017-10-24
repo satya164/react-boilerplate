@@ -1,3 +1,3 @@
 declare module StyleSheetStub {
-  declare var exports: { [key: string]: string };
+  declare module.exports: { [key: string]: string };
 }
