@@ -1,18 +1,19 @@
 /* @flow */
 
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/actionTypes';
 import type { Action } from '../types/Action';
 import type { Dispatch, GetState } from '../types/Store';
 
 export function increment(amount: number): Action {
   return {
-    type: 'INCREMENT_COUNTER',
+    type: INCREMENT_COUNTER,
     payload: amount,
   };
 }
 
 export function decrement(amount: number): Action {
   return {
-    type: 'DECREMENT_COUNTER',
+    type: DECREMENT_COUNTER,
     payload: amount,
   };
 }

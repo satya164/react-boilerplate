@@ -42,12 +42,12 @@ const Button = styled.button`
   }
 `;
 
-type Props = {
+type Props = {|
   counter: number,
   increment: (amount: number) => mixed,
   decrement: (amount: number) => mixed,
   incrementIfEven: (amount: number) => mixed,
-};
+|};
 
 export default class Counter extends React.Component<Props> {
   render() {
